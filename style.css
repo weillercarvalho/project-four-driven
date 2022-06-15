@@ -6,7 +6,6 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-   
     background-color: #eef9bf;
 }
 header {
@@ -29,6 +28,7 @@ nav {
     line-height: 66px;
     color: #75b79e;
     letter-spacing: -0.004em;
+    flex-wrap: wrap;
 }
 main {
     display: flex;
@@ -45,7 +45,7 @@ main > div {
     justify-content: space-around;
     width: 117px;
 }
-.primeiracarta {
+.face {
     width: 117px;
     height: 156px;
     background-color: #A7E9AF;
@@ -54,141 +54,28 @@ main > div {
     display:flex;
     justify-content:center;
     align-items:center;
+    backface-visibility: hidden;
+    transition: all .5s;
+    transform-style: preserve-3d;
 }
-.segundacarta {
-    width: 117px;
-    height: 156px;
-    background-color: #A7E9AF;
-    border: 1px solid #99CEA8;
-    border-radius: 5px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-.terceiracarta {
-    width: 117px;
-    height: 156px;
-    background-color: #A7E9AF;
-    border: 1px solid #99CEA8;
-    border-radius: 5px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-.quartacarta {
-    width: 117px;
-    height: 156px;
-    background-color: #A7E9AF;
-    border: 1px solid #99CEA8;
-    border-radius: 5px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-.quintacarta {
-    width: 117px;
-    height: 156px;
-    background-color: #A7E9AF;
-    border: 1px solid #99CEA8;
-    border-radius: 5px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-.sextacarta {
-    width: 117px;
-    height: 156px;
-    background-color: #A7E9AF;
-    border: 1px solid #99CEA8;
-    border-radius: 5px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-.setimacarta {
-    width: 117px;
-    height: 156px;
-    background-color: #A7E9AF;
-    border: 1px solid #99CEA8;
-    border-radius: 5px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-.oitavacarta {
-    width: 117px;
-    height: 156px;
-    background-color: #A7E9AF;
-    border: 1px solid #99CEA8;
-    border-radius: 5px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-.nonacarta {
-    width: 117px;
-    height: 156px;
-    background-color: #A7E9AF;
-    border: 1px solid #99CEA8;
-    border-radius: 5px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-.decimacarta {
-    width: 117px;
-    height: 156px;
-    background-color: #A7E9AF;
-    border: 1px solid #99CEA8;
-    border-radius: 5px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-.decimaprimeiracarta {
-    width: 117px;
-    height: 156px;
-    background-color: #A7E9AF;
-    border: 1px solid #99CEA8;
-    border-radius: 5px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-.decimasegundacarta {
-    width: 117px;
-    height: 156px;
-    background-color: #A7E9AF;
-    border: 1px solid #99CEA8;
-    border-radius: 5px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-.decimaterceiracarta {
-    width: 117px;
-    height: 156px;
-    background-color: #A7E9AF;
-    border: 1px solid #99CEA8;
-    border-radius: 5px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-.decimaquartacarta {
-    width: 117px;
-    height: 156px;
-    background-color: #A7E9AF;
-    border: 1px solid #99CEA8;
-    border-radius: 5px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
+
 img {
     width: 100px;
     height: 100px;
 }
+.face.verso {
+    transform: rotateY(180deg);
+}
+.face.frente {
+    transform: rotateY(-180deg);
+}
 .sumir {
     display: none;
+}
+@media (max-width: 679px) {
+    nav {
+        font-size: 36px;
+        line-height: 42px;
+        text-align: center;
+    }
 }
