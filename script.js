@@ -18,22 +18,31 @@ const deck = [
 
 // function quantidade() {
 //     amount = Number(prompt(`Com quantas cartas você deseja jogar entre 4 e 14(escolha apenas valores pares)?`));
-//     while (amount % 2 === 1) {
-//         amount = Number(prompt(`Digite apenas valores pares:`));}
-//     while (isNaN(amount) === true) {
-//         amount = Number(prompt(`Caracter invalido, digite um valor par.`));
+//     if(amount == 0) {
+//         alert(`Insira um valor par e diferente de zero.`);
+//         quantidade();
 //     }
-//     while (amount % 2 === 1) {
-//         amount = Number(prompt(`Digite apenas valores pares:`));}
-//     while (isNaN(amount) === true) {
-//         amount = Number(prompt(`Caracter invalido, digite um valor par.`));
+//     else if(amount < 4) {
+//         alert(`Insira um valor maior ou igual a 4 e menor que 14 sendo o mesmo par.`);
+//         quantidade();
 //     }
-
+//     else if(amount > 14) {
+//         alert(`Insira um valor menor ou igual a 14 e sendo par.`);
+//         quantidade();
+//     }
+//     else if (amount % 2 == 1) {
+//         alert(`Insira um valor par e entre 4 e 14 para jogar.`);
+//         quantidade();
+//     }
+//     else if (isNaN(amount) == true) {
+//         alert(`Caractere invalido, insira um valor entre 4 e 14 e par.`)
+//     }
 //     return amount;
 // }
+
 // quantidade();
 
-// deck.length = amount;
+deck.length = amount;
 
 value = document.getElementById(`valores`);
 code = ``;
