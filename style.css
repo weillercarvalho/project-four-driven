@@ -63,11 +63,14 @@ img {
     width: 100px;
     height: 100px;
 }
-.face.verso {
+.face-verso {
     transform: rotateY(180deg);
 }
-.face.frente {
+.face-frente {
     transform: rotateY(-180deg);
+}
+.giro {
+    transform: rotateY(0deg);
 }
 .sumir {
     display: none;

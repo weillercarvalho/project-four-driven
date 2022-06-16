@@ -1,20 +1,41 @@
-// quantidade();
+
+
 let amount;
 let deck = [];
 let count = 0;
 let virada;
 let vira1;
 let vira2;
+let puxar;
+
 function quantidade() {
-    amount = (prompt(`Com quantas cartas você deseja jogar entre 4 e 14(escolha apenas valores pares)?`));
+    amount = Number(prompt(`Com quantas cartas você deseja jogar entre 4 e 14(escolha apenas valores pares)?`));
     while (amount % 2 === 1) {
-        amount = (prompt(`Digite apenas valores pares:`));}
-    while (amount === "") {
-        amount = (prompt(`Nao deixe o espaço em branco, digite um valor par.`))}
+        amount = Number(prompt(`Digite apenas valores pares:`));}
     while (isNaN(amount) === true) {
-        amount = prompt(`Caracter invalido, digite um valor par.`)
+        amount = Number(prompt(`Caracter invalido, digite um valor par.`));
+    }
+    while (amount % 2 === 1) {
+        amount = Number(prompt(`Digite apenas valores pares:`));}
+    while (isNaN(amount) === true) {
+        amount = Number(prompt(`Caracter invalido, digite um valor par.`));
+    }
+
+    return amount;
+}
+
+quantidade();
+
+
+function numeroCartas() {
+    while (count < amount) {
+        puxar = document.querySelector(`.sumir`)
+        puxar.classList.remove(`sumir`)
+        count ++;    
     }
 }
+numeroCartas();
+
 function virar (elemento) {
     vira1 = document.querySelector(`.primeiropar .face.um`);
     if (vira1 != null) {
@@ -141,3 +162,4 @@ function virar14 (elemento) {
     }
 
 }
+// CRIA UMA LISTA COM ISSO:
