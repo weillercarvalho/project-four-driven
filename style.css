@@ -30,51 +30,54 @@ nav {
     letter-spacing: -0.004em;
     flex-wrap: wrap;
 }
+
 main {
     display: flex;
-    height: 526px;
+    height: 540px;
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
-main > div {
-    height: 100%;
+#valores {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 117px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-.face {
-    width: 117px;
-    height: 156px;
-    background-color: #A7E9AF;
-    border: 1px solid #99CEA8;
-    border-radius: 5px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    backface-visibility: hidden;
-    transition: all .5s;
+.imagesimages {
+    position: relative;
     transform-style: preserve-3d;
+    transition: all .5s;
 }
-
-img {
-    width: 100px;
-    height: 100px;
+.imagesimages:active {
+    transform: scale(0.9);
 }
-.face-verso {
+.imagesimages.virar {
     transform: rotateY(180deg);
 }
-.face-frente {
-    transform: rotateY(-180deg);
+.frente-face {
+    position: absolute;
+    top: 0px;
+    left: 0px;
 }
-.giro {
-    transform: rotateY(0deg);
+.frente-face {
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    margin: 2px;
 }
-.sumir {
-    display: none;
+.verso-face {
+    backface-visibility: hidden;
+    border-radius: 10px;
+    margin: 2px;
 }
+
+
+
+img {
+    width: 117px;
+    height: 146px;
+}
+
 @media (max-width: 679px) {
     nav {
         font-size: 36px;
