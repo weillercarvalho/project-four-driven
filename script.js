@@ -42,13 +42,13 @@ const deck = [
 
 // quantidade();
 
-deck.length = amount;
+// deck.length = (amount) / 2;
 
 value = document.getElementById(`valores`);
 code = ``;
-deck.forEach(index =>{
+deck.forEach(index => {
     code += `
-        <div class="imagesimages">
+        <div class="imagesimages" data-estrutura="${index}" >
             <img class="frente-face" src="images/${index}">
             <img class="verso-face" src="images/parrotfather.png">
         </div>`
@@ -56,17 +56,26 @@ deck.forEach(index =>{
 value.innerHTML = code + code;
 cards = document.querySelectorAll(`.imagesimages`);
 
+function verificacao() {
+    if (vira1.dataset.estrutura === vira2.dataset.estrutura) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
 function virar() {
     this.classList.add(`virar`);
+    if (vira1 === undefined){
+        vira1 = this;
+    }
+    vira2 = this;
+    
+    verificacao();
 }
 
 cards.forEach(chamar => chamar.addEventListener(`click`,virar))
-
-
-
-
-
-
 
 
 
