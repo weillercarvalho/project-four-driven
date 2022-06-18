@@ -1,3 +1,4 @@
+let comparar;
 let amount;
 let virada;
 let vira1;
@@ -6,6 +7,7 @@ let puxar;
 let cards;
 let value;
 let code;
+let close = false;
 const deck = [
     `img1.gif`,
     `img2.gif`,
@@ -57,29 +59,55 @@ value.innerHTML = code + code;
 cards = document.querySelectorAll(`.imagesimages`);
 
 function verificacao() {
+    comparar = vira1.dataset.estrutura === vira2.dataset.estrutura;
     if (vira1.dataset.estrutura === vira2.dataset.estrutura) {
+        reset();
         return true;
     } else {
-        return false;
+        timer();
+        
     }
 }
-
-
 function virar() {
+    if (close === true) {
+        return false;
+    }
     this.classList.add(`virar`);
-    if (vira1 === undefined){
+    if (!vira1){
         vira1 = this;
+        vira1.removeEventListener(`click`, virar);
+        return false;
     }
     vira2 = this;
     
     verificacao();
 }
 
-cards.forEach(chamar => chamar.addEventListener(`click`,virar))
+function reset(comparar) {
+    if(comparar === true) {
+        vira1.removeEventListener(`click`, virar);
+        vira2.removeEventListener(`click`, virar);
+        close = false;
+        vira1 = null;
+        vira2 = null;
+    }
+}
 
+cards.forEach(call => call.addEventListener(`click`,virar))
 
+function timer() {
+    close = true;
+    setTimeout(timing,1000)
+}
 
-
+function timing() {
+    vira1.classList.remove(`virar`);
+    vira1.addEventListener(`click`,virar);
+    vira2.classList.remove(`virar`);
+    close = false;
+    vira1 = null;
+    vira2 = null;
+}
 
 
 
