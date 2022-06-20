@@ -11,6 +11,7 @@ let close = false;
 let count = 0;
 let clocks = 0;
 let idInterval;
+let reinicio;
 const deck = [
     `img1.gif`,
     `img2.gif`,
@@ -21,33 +22,34 @@ const deck = [
     `img7.gif`,
 ];
 
-// function quantidade() {
-//     amount = Number(prompt(`Com quantas cartas você deseja jogar entre 4 e 14(escolha apenas valores pares)?`));
-//     if(amount == 0) {
-//         alert(`Insira um valor par e diferente de zero.`);
-//         quantidade();
-//     }
-//     else if(amount < 4) {
-//         alert(`Insira um valor maior ou igual a 4 e menor que 14 sendo o mesmo par.`);
-//         quantidade();
-//     }
-//     else if(amount > 14) {
-//         alert(`Insira um valor menor ou igual a 14 e sendo par.`);
-//         quantidade();
-//     }
-//     else if (amount % 2 == 1) {
-//         alert(`Insira um valor par e entre 4 e 14 para jogar.`);
-//         quantidade();
-//     }
-//     else if (isNaN(amount) == true) {
-//         alert(`Caractere invalido, insira um valor entre 4 e 14 e par.`)
-//     }
-//     return amount;
-// }
+function quantidade() {
+    amount = Number(prompt(`Com quantas cartas você deseja jogar entre 4 e 14(escolha apenas valores pares)?`));
+    if(amount == 0) {
+        alert(`Insira um valor par e diferente de zero.`);
+        quantidade();
+    }
+    else if(amount < 4) {
+        alert(`Insira um valor maior ou igual a 4 e menor que 14 sendo o mesmo par.`);
+        quantidade();
+    }
+    else if(amount > 14) {
+        alert(`Insira um valor menor ou igual a 14 e sendo par.`);
+        quantidade();
+    }
+    else if (amount % 2 == 1) {
+        alert(`Insira um valor par e entre 4 e 14 para jogar.`);
+        quantidade();
+    }
+    else if (isNaN(amount) == true) {
+        alert(`Caractere invalido, insira um valor entre 4 e 14 e par.`)
+    }
+    return amount;
+}
 
-// quantidade();
+quantidade();
+clock();
 
-// deck.length = (amount) / 2;
+deck.length = (amount) / 2;
 
 value = document.getElementById(`valores`);
 code = ``;
@@ -84,7 +86,10 @@ function virar() {
         return false;
     }
     this.classList.add(`virar`);
+    timinzing();
+    restart();
     if (vira1 === undefined){
+        
         vira1 = this;
         vira1.removeEventListener(`click`, virar);
         return false;
@@ -102,8 +107,7 @@ function reset(comparar) {
         close = false;
         vira1 = undefined;
         vira2 = undefined;
-        count++;
-        
+      
     }
 }
 
@@ -120,43 +124,46 @@ function timer() {
         close = false;
         vira1 = undefined;
         vira2 = undefined;
-        count++;
+        
     },1000)
 }
 
 
 
-// function clock() {
-//     document.getElementById(`#timer`).innerHTML = clocks;
-//     idInterval = setInterval(aumento,1000)
-// }
-
-// clock();
-
-// function aumento() {
-//     document.getElementById(`#timer`).innerHTML = clocks;
-//     if(document.querySelectorAll(`.virar`).length >= 1 && document.querySelectorAll(`.virar`).length < contagem2) {
-//         clocks++;
-//     }
-// }
+function clock() {
+    document.getElementById(`timer`).innerHTML = clocks;
+    idInterval = setInterval(aumento,1000)
+}
 
 
 
-(function timinzing() {
+function aumento() {
+    document.getElementById(`timer`).innerHTML = clocks;
+    if(document.querySelectorAll(`.virar`).length >= 1) {
+        clocks++;
+    }
+}
+
+
+
+function timinzing() {
+    count++;
     if (document.querySelectorAll(`.virar`).length === contagem2) {
-        return alert(`Você ganhou em ${count} jogadas e em ${document.getElementById(`#timer`).innerText} segundos!`)
+        alert(`Você ganhou em ${count} jogadas e em ${document.getElementById(`timer`).innerText} segundos!`)
     } else {
 
     };
-})();
+};
 
 
-// function restart() {
-//     let reinicio = prompt(`Gostaria de jogar de novo? Responda com sim ou nao?`)
-//     reinicio = reinicio.toLowerCase();
 
-//     if (reinicio == "sim" && document.querySelectorAll(`.virar`).length == contagem2){
-//         location.reload();
-//     }
-//     alert (`Tudo bem, foi divertido ter voce aqui.`)
-// }
+function restart() {
+    if (document.querySelectorAll(`.virar`).length == contagem2){
+        let reinicio = prompt(`Gostaria de jogar de novo? Responda com sim ou nao?`);
+        reinicio = reinicio.toLowerCase();
+        if (reinicio == "sim"){
+            location.reload();
+        }
+        alert (`Tudo bem, foi divertido ter voce aqui.`)
+    }
+};
