@@ -69,7 +69,10 @@ main {
     margin: 2px;
 }
 
-
+#timer {
+    margin-left: 100px;
+    color: black;
+}
 
 img {
     width: 117px;

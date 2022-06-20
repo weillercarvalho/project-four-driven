@@ -8,7 +8,9 @@ let cards;
 let value;
 let code;
 let close = false;
-let count;
+let count = 0;
+let clocks = 0;
+let idInterval;
 const deck = [
     `img1.gif`,
     `img2.gif`,
@@ -19,38 +21,38 @@ const deck = [
     `img7.gif`,
 ];
 
-function quantidade() {
-    amount = Number(prompt(`Com quantas cartas você deseja jogar entre 4 e 14(escolha apenas valores pares)?`));
-    if(amount == 0) {
-        alert(`Insira um valor par e diferente de zero.`);
-        quantidade();
-    }
-    else if(amount < 4) {
-        alert(`Insira um valor maior ou igual a 4 e menor que 14 sendo o mesmo par.`);
-        quantidade();
-    }
-    else if(amount > 14) {
-        alert(`Insira um valor menor ou igual a 14 e sendo par.`);
-        quantidade();
-    }
-    else if (amount % 2 == 1) {
-        alert(`Insira um valor par e entre 4 e 14 para jogar.`);
-        quantidade();
-    }
-    else if (isNaN(amount) == true) {
-        alert(`Caractere invalido, insira um valor entre 4 e 14 e par.`)
-    }
-    return amount;
-}
+// function quantidade() {
+//     amount = Number(prompt(`Com quantas cartas você deseja jogar entre 4 e 14(escolha apenas valores pares)?`));
+//     if(amount == 0) {
+//         alert(`Insira um valor par e diferente de zero.`);
+//         quantidade();
+//     }
+//     else if(amount < 4) {
+//         alert(`Insira um valor maior ou igual a 4 e menor que 14 sendo o mesmo par.`);
+//         quantidade();
+//     }
+//     else if(amount > 14) {
+//         alert(`Insira um valor menor ou igual a 14 e sendo par.`);
+//         quantidade();
+//     }
+//     else if (amount % 2 == 1) {
+//         alert(`Insira um valor par e entre 4 e 14 para jogar.`);
+//         quantidade();
+//     }
+//     else if (isNaN(amount) == true) {
+//         alert(`Caractere invalido, insira um valor entre 4 e 14 e par.`)
+//     }
+//     return amount;
+// }
 
-quantidade();
+// quantidade();
 
-deck.length = (amount) / 2;
+// deck.length = (amount) / 2;
 
 value = document.getElementById(`valores`);
 code = ``;
 count = 0;
-deck.forEach(index => {
+deck.forEach((index) => {
     code += `
         <div class="imagesimages" data-estrutura="${index}" >
             <img class="frente-face" src="images/${index}">
@@ -107,7 +109,6 @@ function reset(comparar) {
 
 cards.forEach(call => call.addEventListener(`click`,virar))
 
-let contagem = document.querySelectorAll(`.virar`).length;
 let contagem2 = amount;
 
 function timer() {
@@ -123,15 +124,28 @@ function timer() {
     },1000)
 }
 
-function timinzing() {
-    if (contagem === contagem2) {
-        return alert(`Você ganhou em ${count} jogadas!`)
+
+
+// function clock() {
+//     document.getElementById(`#timer`).innerHTML = clocks;
+//     idInterval = setInterval(aumento,1000)
+// }
+
+// clock();
+
+// function aumento() {
+//     document.getElementById(`#timer`).innerHTML = clocks;
+//     if(document.querySelectorAll(`.virar`).length >= 1 && document.querySelectorAll(`.virar`).length < contagem2) {
+//         clocks++;
+//     }
+// }
+
+
+
+(function timinzing() {
+    if (document.querySelectorAll(`.virar`).length === contagem2) {
+        return alert(`Você ganhou em ${count} jogadas e em ${document.getElementById(`#timer`).innerText} segundos!`)
     } else {
 
     };
-}
-
-
-
-
-
+})();
