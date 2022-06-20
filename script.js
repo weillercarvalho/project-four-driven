@@ -149,3 +149,14 @@ function timer() {
 
     };
 })();
+
+
+// function restart() {
+//     let reinicio = prompt(`Gostaria de jogar de novo? Responda com sim ou nao?`)
+//     reinicio = reinicio.toLowerCase();
+
+//     if (reinicio == "sim" && document.querySelectorAll(`.virar`).length == contagem2){
+//         location.reload();
+//     }
+//     alert (`Tudo bem, foi divertido ter voce aqui.`)
+// }
